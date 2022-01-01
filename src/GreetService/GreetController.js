@@ -12,6 +12,7 @@ class GreetController {
     async getAll(req, res) {
         try {
             const greets = await GreetServise.getAll();
+            res.set('Access-Control-Allow-Origin', '*')
             res.status(200).json(greets)
         } catch (e) {
             res.status(500).json(e)
