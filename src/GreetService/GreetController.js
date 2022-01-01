@@ -4,6 +4,7 @@ class GreetController {
     async create(req, res) {
         try {
             const greet = await GreetServise.create(req.body, req.files.picture);
+            res.set('Access-Control-Allow-Origin', '*')
             res.status(200).json(greet)
         } catch (e) {
             res.status(500).json(e)
@@ -21,6 +22,7 @@ class GreetController {
     async getOne(req, res) {
         try {
             const greet = await GreetServise.getOne(req.params.id)
+            res.set('Access-Control-Allow-Origin', '*')
             res.status(200).json(greet)
         } catch (e) {
             res.status(500).json(e)
@@ -29,6 +31,7 @@ class GreetController {
     async update(req, res) {
         try {
             const updateGreet = await GreetServise.update(req.body)
+            res.set('Access-Control-Allow-Origin', '*')
             res.status(200).json(updateGreet)
         } catch (e) {
             res.status(500).json(e)
@@ -37,6 +40,7 @@ class GreetController {
     async delete(req, res) {
         try {
             const greet = await GreetServise.delete(req.params.id)
+            res.set('Access-Control-Allow-Origin', '*')
             res.status(200).json(greet)
         } catch (e) {
             res.status(500).json(e)
