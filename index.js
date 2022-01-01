@@ -1,6 +1,6 @@
 import express from "express";
 import fileUpload from "express-fileupload";
-import router from "./router.js";
+import router from "./src/router.js";
 import mongoose from "mongoose";
 
 const PORT = process.env.PORT || 80;
