@@ -3,6 +3,7 @@ import GreetServise from './GreetServise.js';
 class GreetController {
     async create(req, res) {
         res.set('Access-Control-Allow-Origin', '*')
+        
         try {
             const greet = await GreetServise.create(req.body, req.files.picture);
             res.status(200).json(greet)
@@ -21,6 +22,7 @@ class GreetController {
     }
     async getOne(req, res) {
         res.set('Access-Control-Allow-Origin', '*')
+        res.set('Content-Security-Policy', '*')
         try {
             const greet = await GreetServise.getOne(req.params.id)
             res.status(200).json(greet)
