@@ -8,6 +8,12 @@ const DB_URL = `mongodb+srv://userb:ucYa9niO3pCS6jB1@cluster0.m1y2t.mongodb.net/
 
 const app = express()
 
+app.use((req, res) => {
+    res.set({
+        "Access-Control-Allow-Origin": "*",
+        "Content-Security-Policy": "default-src *"
+    })
+})
 app.use(express.json())
 app.use(express.static('static'))
 app.use(fileUpload({}))
